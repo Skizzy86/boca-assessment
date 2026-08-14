@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Breakthrough Year — Business Owner Capacity Assessment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#2D376A;
+  --navy-deep:#232a52;
+  --orange:#F16436;
+  --blue:#2955A0;
+  --cream:#FAF8F5;
+  --panel:#EDE9E3;
+  --ink:#1A1A1A;
+  --muted:#8A857E;
+  --line:#DAD5CE;
+  --white:#fff;
+  --ok:#2F7D5B;
+  --font:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--font);
+  background:var(--cream);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+.label{
+  font-family:var(--mono);
+  font-size:10px;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.wrap{max-width:1080px;margin:0 auto;padding:0 28px}
+
+/* ---------- top bar ---------- */
+.topbar{
+  background:var(--navy);color:#fff;
+  padding:14px 0;position:sticky;top:0;z-index:50;
+}
+.topbar .wrap{display:flex;align-items:center;gap:24px;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.16em;font-size:11px;text-transform:uppercase}
+.mark{width:22px;height:29px;flex:none}
+.views{display:flex;gap:4px}
+.views button{
+  font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;
+  background:transparent;color:rgba(255,255,255,.6);border:1px solid rgba(255,255,255,.22);
+  padding:7px 13px;border-radius:999px;cursor:pointer;transition:.15s;
+}
+.views button:hover{color:#fff;border-color:rgba(255,255,255,.5)}
+.views button.on{background:#fff;color:var(--navy);border-color:#fff;font-weight:500}
+
+/* ---------- shared ---------- */
+.view{display:none;padding:44px 0 90px}
+.view.on{display:block}
+h1{font-size:40px;line-height:1.06;font-weight:800;letter-spacing:-.02em;margin:0 0 14px}
+h2{font-size:22px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
+.lede{font-size:16px;color:#4a4741;max-width:56ch;margin:0 0 34px}
+.rule{height:1px;background:var(--line);border:0;margin:34px 0}
+
+/* ---------- scale legend ---------- */
+.scale{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  border:1px solid var(--line);border-radius:10px;overflow:hidden;background:var(--white);margin-bottom:34px;
+}
+.scale div{padding:14px 16px;border-right:1px solid var(--line)}
+.scale div:last-child{border-right:0}
+.scale b{display:block;font-family:var(--mono);font-size:20px;color:var(--orange);font-weight:500;line-height:1}
+.scale span{display:block;font-size:12.5px;color:#57534d;margin-top:6px}
+
+/* ---------- statement lists ---------- */
+.stmt{
+  display:grid;grid-template-columns:34px 1fr;gap:16px;
+  padding:17px 0;border-bottom:1px solid var(--line);align-items:start;
+}
+.stmt .n{font-family:var(--mono);font-size:12px;color:var(--muted);padding-top:3px}
+.stmt .t{font-size:15.5px;line-height:1.45}
+
+#guide .stmt{grid-template-columns:34px 1fr 188px}
+.dots{display:flex;gap:6px;justify-content:flex-end;padding-top:1px}
+.dots button{
+  width:38px;height:34px;border-radius:8px;cursor:pointer;
+  border:1px solid var(--line);background:var(--white);
+  font-family:var(--mono);font-size:13px;color:#57534d;transition:.12s;
+}
+.dots button:hover{border-color:var(--navy);color:var(--navy)}
+.dots button.on{background:var(--navy);border-color:var(--navy);color:#fff;font-weight:500}
+.stmt.done .t{color:#57534d}
+.wt{font-family:var(--mono);font-size:9.5px;color:var(--muted);letter-spacing:.08em}
+
+/* ---------- guide admin ---------- */
+.admin{
+  background:var(--white);border:1px solid var(--line);border-radius:12px;
+  padding:22px 24px;margin-bottom:30px;
+}
+.fields{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px}
+.fields label{display:block}
+.fields .label{margin-bottom:6px;display:block}
+.fields input{
+  width:100%;padding:10px 12px;font-family:var(--font);font-size:14.5px;
+  border:1px solid var(--line);border-radius:8px;background:var(--cream);color:var(--ink);
+}
+.fields input:focus{outline:2px solid var(--navy);outline-offset:-1px;background:#fff}
+
+.livebar{
+  position:sticky;bottom:0;background:var(--navy);color:#fff;
+  margin-top:38px;border-radius:12px;padding:16px 22px;
+  display:flex;align-items:center;gap:26px;flex-wrap:wrap;
+}
+.livebar .pill{display:flex;flex-direction:column;gap:2px;min-width:74px}
+.livebar .pill .label{color:rgba(255,255,255,.55)}
+.livebar .pill b{font-family:var(--mono);font-size:17px;font-weight:500}
+.livebar .grow{flex:1}
+.btn{
+  font-family:var(--font);font-weight:700;font-size:14px;letter-spacing:.01em;
+  background:var(--orange);color:#fff;border:0;border-radius:999px;
+  padding:13px 26px;cursor:pointer;transition:.15s;white-space:nowrap;
+}
+.btn:hover{background:#d24d1f}
+.btn:disabled{background:#6d6a7f;cursor:not-allowed}
+.btn.ghost{background:transparent;border:1px solid rgba(255,255,255,.3);color:#fff;font-weight:500}
+.btn.ghost:hover{background:rgba(255,255,255,.1)}
+.btn.dark{background:var(--navy)}
+.btn.dark:hover{background:var(--navy-deep)}
+
+/* ---------- report ---------- */
+.sheet{background:var(--cream)}
+.hero{
+  background:var(--navy);color:#fff;border-radius:22px;
+  padding:34px 40px 38px;position:relative;overflow:hidden;
+}
+.hero:after{
+  content:'';position:absolute;top:-70px;right:-40px;width:250px;height:250px;
+  border-radius:50%;background:rgba(241,100,54,.20);
+}
+.hero .top{display:flex;justify-content:space-between;align-items:flex-start;gap:30px;position:relative;z-index:2}
+.hero .lockup{width:190px;height:66px;flex:none}
+.hero .who{position:relative;z-index:2;margin-top:22px;padding-top:18px;border-top:1px solid rgba(255,255,255,.2);display:flex;gap:40px;flex-wrap:wrap}
+.hero .who .label{color:rgba(255,255,255,.55)}
+.hero .who b{display:block;font-size:16px;font-weight:600;margin-top:3px}
+
+/* the BOCA number */
+.boca{position:relative;z-index:2;margin:28px 0 0;display:flex;align-items:flex-end;gap:28px;flex-wrap:wrap}
+.boca .num{font-family:var(--font);font-size:118px;line-height:.84;font-weight:800;letter-spacing:-.045em}
+.boca .num small{font-size:30px;font-weight:600;letter-spacing:-.01em;color:rgba(255,255,255,.55)}
+.boca .said{max-width:34ch;padding-bottom:8px}
+.boca .said .label{color:rgba(255,255,255,.55);display:block;margin-bottom:7px}
+.boca .said p{margin:0;font-size:17px;line-height:1.4;font-weight:600}
+
+/* verdict */
+.verdict{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:28px 32px;margin:16px 0}
+.verdict h2{font-size:27px;margin:8px 0 12px}
+.verdict p{margin:0;font-size:15px;line-height:1.6;color:#3c3934;max-width:74ch}
+.verdict .demoted{
+  margin-top:18px;padding-top:16px;border-top:1px solid var(--line);
+  font-size:13px;color:#6b665f;
+}
+.shape{background:var(--panel);border-radius:12px;padding:22px 26px;margin:16px 0}
+.shape p{margin:7px 0 0;font-size:14.5px;line-height:1.6;max-width:76ch;color:#3c3934}
+
+.quote{
+  background:var(--panel);border-radius:12px;padding:20px 26px;margin:16px 0;
+  display:flex;justify-content:space-between;gap:30px;align-items:center;
+}
+.quote p{margin:0;font-style:italic;font-size:14.5px;max-width:62ch;color:#3c3934}
+
+/* merged pillar cards: score and meaning together */
+.pillars{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.pcard{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px 22px}
+.pcard .r{display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+.pcard h3{margin:0;font-size:16px;font-weight:700}
+.pcard .v{font-family:var(--mono);font-size:13px;color:var(--navy);white-space:nowrap}
+.pcard .v em{font-style:normal;color:var(--muted)}
+.pcard .sc{font-family:var(--mono);font-size:30px;font-weight:500;line-height:1;color:var(--navy);margin:10px 0 0}
+.pcard .sc small{font-size:13px;color:var(--muted)}
+.rail{height:5px;background:var(--line);border-radius:99px;margin:11px 0 8px;position:relative}
+.rail i{position:absolute;left:0;top:0;bottom:0;background:var(--navy);border-radius:99px}
+.rail u{position:absolute;top:-3.5px;width:12px;height:12px;border-radius:50%;background:var(--orange);border:2px solid var(--white);transform:translateX(-6px)}
+.pcard .bd{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.pcard p{margin:0;font-size:13.5px;line-height:1.58;color:#4a4741}
+.pcard.low{border-color:var(--orange);border-width:1.5px}
+.pcard.low .v,.pcard.low .sc,.pcard.low .bd{color:var(--orange)}
+.pcard.low .rail i{background:var(--orange)}
+
+.cta{border-top:1px solid var(--line);margin-top:22px;padding-top:24px;display:flex;justify-content:space-between;align-items:center;gap:30px;flex-wrap:wrap}
+.cta h2{font-size:22px;margin:0 0 5px;max-width:30ch}
+.cta p{margin:0;font-size:13.5px;color:#57534d;max-width:62ch}
+.partner{margin-top:18px;padding:14px 18px;background:var(--panel);border-radius:10px;font-size:12.5px;color:#57534d}
+.partner b{font-weight:700;color:var(--ink)}
+.partner .url{font-family:var(--mono);font-size:12px;color:var(--blue)}
+.foot{margin-top:22px;font-size:11px;color:var(--muted);line-height:1.6}
+
+.empty{padding:56px 0;text-align:center;color:var(--muted);font-size:15px}
+.toolrow{display:flex;gap:10px;margin-bottom:24px;flex-wrap:wrap}
+.sharerow{
+  display:flex;align-items:center;gap:12px;margin:-8px 0 26px;
+  background:var(--white);border:1px solid var(--line);border-radius:10px;padding:12px 16px;flex-wrap:wrap;
+}
+.sharerow input{
+  flex:1;min-width:240px;border:0;background:transparent;font-family:var(--mono);
+  font-size:12.5px;color:var(--navy);padding:4px 0;
+}
+.sharerow input:focus{outline:none}
+
+@media (max-width:900px){
+  .fields,.pillars{grid-template-columns:1fr}
+  .scale{grid-template-columns:1fr 1fr}
+  #guide .stmt{grid-template-columns:28px 1fr}
+  .dots{justify-content:flex-start;padding-left:44px}
+  h1{font-size:30px}
+  .boca .num{font-size:78px}
+}
+
+/* ---------- PRINT: report only ---------- */
+@page{size:letter portrait;margin:12mm}
+@media print{
+  .topbar,.toolrow,.livebar,.admin,#guide,#client,.no-print{display:none!important}
+  body{background:#fff}
+  .view{display:none!important;padding:0}
+  .view#report.on{display:block!important}
+  .wrap{max-width:none;padding:0}
+  .hero{border-radius:14px;padding:24px 26px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .boca .num{font-size:92px}
+  .verdict,.quote,.shape,.pcard,.partner{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .verdict,.shape,.pcard,.cta{break-inside:avoid}
+  /* Letter width sits under the 900px breakpoint, so the mobile single-column
+     rule would otherwise fire in print and stack all five pillar cards. */
+  .pillars{grid-template-columns:1fr 1fr!important;gap:10px;margin:10px 0}
+  .pcard{padding:14px 16px}
+  .pcard .sc{font-size:24px;margin-top:7px}
+  .pcard p{font-size:11.6px;line-height:1.48}
+  .pcard .bd{margin-bottom:7px}
+  .quote{padding:14px 20px;margin:12px 0}
+  .quote p{font-size:12.5px}
+  .verdict{padding:20px 24px;margin:12px 0}
+  .verdict p{font-size:13.5px}
+  .shape{padding:16px 20px;margin:12px 0}
+  .shape p{font-size:12.5px}
+  .cta{margin-top:16px;padding-top:16px}
+  .partner{margin-top:12px;padding:11px 15px}
+  .foot{margin-top:14px}
+  .pagebreak{break-before:page}
+  a{text-decoration:none;color:inherit}
+}
+</style>
+</head>
+<body>
+
+<div class="topbar no-print">
+  <div class="wrap">
+    <div class="brand">
+      <svg class="mark" viewBox="1105 83 296 389" aria-hidden="true"><g transform="translate(0,559) scale(0.1,-0.1)" fill="#F16436"><path d="M11367 4699 c-103 -25 -188 -95 -234 -194 -26 -58 -28 -68 -31 -247
+-3 -112 0 -188 5 -188 5 0 20 23 32 51 30 65 82 116 157 154 52 26 69 30 144
+30 73 0 93 -4 141 -28 30 -16 71 -43 91 -60 19 -18 122 -106 228 -197 106 -91
+234 -201 284 -245 51 -44 108 -93 128 -110 57 -48 248 -213 318 -275 36 -31
+97 -83 135 -116 39 -32 75 -64 82 -70 6 -6 53 -46 104 -90 51 -43 133 -115
+183 -159 172 -152 166 -149 206 -112 14 12 135 116 270 232 269 231 298 259
+332 325 19 38 23 60 23 140 0 84 -4 101 -27 145 -19 36 -156 179 -490 511
+-399 398 -471 464 -518 485 l-55 24 -735 2 c-408 1 -752 -3 -773 -8z"/></g><g transform="translate(0,559) scale(0.1,-0.1)" fill="#2955A0"><path d="M13230 2749 c-30 -28 -77 -70 -104 -93 -27 -22 -68 -57 -90 -76 -69
+-60 -73 -64 -122 -105 -26 -22 -57 -50 -69 -62 -12 -13 -27 -23 -34 -23 -6 0
+-11 -4 -11 -8 0 -4 -35 -37 -77 -72 -43 -36 -80 -67 -83 -71 -3 -3 -30 -27
+-60 -53 -30 -27 -71 -62 -90 -80 -19 -17 -75 -65 -125 -106 -115 -96 -147
+-124 -215 -186 -30 -28 -129 -113 -220 -190 -214 -180 -221 -186 -240 -205
+-30 -28 -104 -76 -144 -93 -23 -9 -67 -16 -108 -16 -58 0 -82 6 -134 31 -75
+35 -136 95 -167 162 -12 26 -26 47 -31 47 -4 0 -6 -84 -4 -187 3 -177 5 -191
+30 -244 50 -109 136 -176 253 -199 43 -8 267 -10 775 -8 l715 3 60 28 c53 24
+117 85 518 485 337 336 465 470 484 507 20 38 27 69 31 132 4 75 2 87 -25 145
+-19 40 -50 82 -84 114 -116 111 -545 474 -559 474 -8 0 -40 -23 -70 -51z"/></g><g transform="translate(0,559) scale(0.1,-0.1)" fill="#FAF8F5"><path d="M11335 4292 c-111 -48 -153 -85 -196 -172 l-29 -59 0 -1251 0 -1251
+25 -52 c33 -72 93 -130 169 -166 52 -25 76 -31 134 -31 41 0 85 7 108 16 40
+17 114 65 144 93 19 19 26 25 240 205 91 77 190 162 220 190 68 62 100 90 215
+186 50 41 106 89 125 106 19 18 60 53 90 80 30 26 57 50 60 53 3 4 40 35 83
+71 42 35 77 68 77 72 0 4 5 8 11 8 7 0 22 10 34 23 12 12 43 40 69 62 49 41
+53 45 122 105 22 19 63 54 90 76 27 23 72 62 99 88 28 25 56 46 63 46 22 0 13
+26 -18 49 -17 12 -75 61 -129 109 -54 48 -139 123 -190 166 -51 44 -98 84
+-104 90 -7 6 -43 38 -82 70 -38 33 -99 85 -135 116 -70 62 -261 227 -318 275
+-20 17 -77 66 -128 110 -50 44 -178 154 -284 245 -106 91 -209 179 -228 197
+-20 17 -61 44 -91 59 -72 36 -184 43 -246 16z"/></g></svg>
+      Breakthrough Year
+    </div>
+    <div class="views">
+      <button data-v="client">Client sheet</button>
+      <button data-v="guide" class="on">Guide form</button>
+      <button data-v="report">Report</button>
+    </div>
+  </div>
+</div>
+
+<!-- ============ CLIENT READ ONLY ============ -->
+<section class="view" id="client">
+  <div class="wrap">
+    <div class="label">Business owner capacity</div>
+    <h1>Twenty five statements.<br>Answer them honestly.</h1>
+    <p class="lede">Your Guide will read each one aloud. There are no right answers and nothing here is a test of effort. Score each statement on how true it is of you right now, not how true you would like it to be.</p>
+    <div class="scale" id="scaleC"></div>
+    <div id="clientList"></div>
+  </div>
+</section>
+
+<!-- ============ GUIDE FORM ============ -->
+<section class="view on" id="guide">
+  <div class="wrap">
+    <div class="label">Guide form · admin</div>
+    <h1>Run the assessment</h1>
+    <div class="admin">
+      <div class="fields">
+        <label><span class="label">Client name</span><input id="fName" placeholder="Full name"></label>
+        <label><span class="label">Business name</span><input id="fBiz" placeholder="Business"></label>
+        <label><span class="label">Guide</span><input id="fGuide" placeholder="Your name"></label>
+      </div>
+    </div>
+    <div class="toolrow">
+      <button class="btn dark" id="btnDemo">Fill sample scores</button>
+      <button class="btn dark" id="btnClear" style="background:transparent;border:1px solid var(--line);color:#57534d">Clear all</button>
+    </div>
+    <div id="guideList"></div>
+    <div class="livebar">
+      <div class="pill"><span class="label">Answered</span><b id="lvAns">0/25</b></div>
+      <div class="pill"><span class="label">Focus</span><b id="lvFocus">–</b></div>
+      <div class="pill"><span class="label">Time</span><b id="lvTime">–</b></div>
+      <div class="pill"><span class="label">Capability</span><b id="lvCapability">–</b></div>
+      <div class="pill"><span class="label">Relationships</span><b id="lvRelationships">–</b></div>
+      <div class="pill"><span class="label">Purpose</span><b id="lvPurpose">–</b></div>
+      <div class="pill"><span class="label">BOCA</span><b id="lvTotal">–</b></div>
+      <div class="grow"></div>
+      <button class="btn" id="btnRun" disabled>Run Test</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============ REPORT ============ -->
+<section class="view" id="report">
+  <div class="wrap">
+    <div class="toolrow no-print">
+      <button class="btn" id="btnPrint">⎙ Print / Save PDF</button>
+      <button class="btn dark" id="btnBack">Back to form</button>
+    </div>
+    <div class="sharerow no-print" id="shareRow" style="display:none">
+      <span class="label">Share link</span>
+      <input readonly>
+      <button class="btn dark" id="btnCopy">Copy</button>
+    </div>
+    <div id="reportBody"><div class="empty">No results yet. Complete the Guide form and press Run Test.</div></div>
+  </div>
+</section>
+
+<script>
+/* =====================================================================
+   ENDPOINT — paste the Apps Script web app /exec URL here.
+   Leave blank to run the tool with no backend: everything still works,
+   you just get no shareable link and nothing is saved.
+   ===================================================================== */
+const ENDPOINT = 'https://script.google.com/macros/s/AKfycbwr9rv4BD8uVeC9Pp4dnCdMUDdM8hJKwpeO9pjFB8paOvZCxeXvBqO25GpUV7IJxxI6/exec';
+
+/* =====================================================================
+   CONFIG — every scoring decision lives here.
+   Change these constants when the client signs off. No other edits needed.
+   ===================================================================== */
+const CONFIG = {
+  scale: [
+    [0,'Not true right now'],
+    [1,'Sometimes true, or inconsistent'],
+    [2,'Mostly true'],
+    [3,'Consistently true']
+  ],
+
+  // Total score bands. Driven by the RAW total out of 75.
+  bands: [
+    {min:0,  max:25, title:'Everything Runs Through You'},
+    {min:26, max:38, title:'You See It, It Has Not Changed'},
+    {min:39, max:52, title:'It Holds When Things Are Calm'},
+    {min:53, max:75, title:'You Are Governing It'}
+  ],
+
+  // Per pillar bands, 0 to 15. Driven by the WEIGHTED pillar score.
+  pillarBands: [
+    {max:5,  label:'Not operating'},
+    {max:7,  label:'Visible, unchanged'},
+    {max:10, label:'Holds when calm'},
+    {max:15, label:'Governed'}
+  ],
+
+  // Per item weights. PROPOSED, pending client sign off.
+  // HARD CONSTRAINT: the five weights in each pillar must sum to exactly 5.0.
+  // That keeps the weighted pillar maximum at 15 and leaves the band
+  // thresholds and demotion floors above valid without retuning.
+  weights: [
+    // Focus
+    1.3, 0.8, 1.0, 1.2, 0.7,
+    // Time
+    0.8, 1.1, 1.3, 0.8, 1.0,
+    // Capability
+    1.1, 1.0, 1.1, 0.8, 1.0,
+    // Relationships
+    1.1, 1.0, 1.1, 1.0, 0.8,
+    // Purpose
+    0.7, 1.0, 1.2, 1.0, 1.1
+  ],
+
+  // Band demotion. Tested against the WEIGHTED pillar score.
+  // Set enabled:false to report on raw total only.
+  demotion: {
+    enabled: true,
+    softFloor: 7,   // pillar 6 or 7 -> demote by softCost
+    hardFloor: 5,   // pillar 0 to 5 -> demote by hardCost
+    softCost: 1,
+    hardCost: 2
+  },
+
+  // Calibration. Dispositional pillars run high, so their floor sits higher.
+  floorAdjust: { Relationships: 1, Purpose: 1 },
+
+  shape: { evenRange:3, splitRange:7, dragGap:4, maskedTotal:53, maskedPillar:7 },
+
+  // Closing message, keyed to the FINAL band index after demotion.
+  cta: [
+    { h:'A cohort would not serve you right now.',
+      p:'What your answers describe is not a development problem, and a year built around developing the person would not touch it. We would rather say that than sell you a seat. We will keep in touch, and if this changes we would like to hear about it.',
+      tag:'No offer today' },
+    { h:'Ready to become the leader your next level requires?',
+      p:'You are a strong candidate for a Breakthrough Year. The gap your answers describe is exactly what the year is built to close, and it will not close on its own. Book a 30 minute conversation and we will tell you honestly whether it fits.',
+      tag:'30 minute conversation' },
+    { h:'Ready to become the leader your next level requires?',
+      p:'You are a strong candidate for a Breakthrough Year. The gap your answers describe is exactly what the year is built to close, and it will not close on its own. Book a 30 minute conversation and we will tell you honestly whether it fits.',
+      tag:'30 minute conversation' },
+    { h:'You are already on your way.',
+      p:'On the things this measures you are operating well, and a cohort built for the usual problems would be a poor use of your year. We are building something for leaders further along than that. We will keep in touch as it takes shape.',
+      tag:'Keep in touch' }
+  ],
+
+  partner: { name:'Huumans', url:'huumans.com',
+             line:'offers financing to help small businesses afford this training.' },
+
+  seats: 'Seven seats a cohort'
+};
+
+/* ---------------- STATEMENTS (live sheet, v4 + client Capability rewrite) --------------- */
+const PILLARS = [
+  {name:'Focus', desc:'Energy on what actually pays.', items:[
+    "I know which three activities generate most of this business's money, and I spent time on at least two of them last week.",
+    "Most of yesterday went to work that nobody else could have done.",
+    "I planned this week before it started, and it is going roughly as planned.",
+    "The last time work came in that did not fit, I turned it down.",
+    "If somebody put my calendar beside my list of priorities, they would match."
+  ]},
+  {name:'Time', desc:'A week you plan, not survive.', items:[
+    "I stopped work yesterday at a time I had decided in advance.",
+    "I get through a normal week without working evenings or weekends.",
+    "When the work piles up, I take something off my plate instead of adding hours to my day.",
+    "I have been away from the business for a full week in the last twelve months.",
+    "The last time I was away, the business did not contact me."
+  ]},
+  {name:'Capability', desc:'The hard things, handled early.', items:[
+    "When somebody's work is not good enough, I tell them within two days.",
+    "I make the decisions I am dreading within a week.",
+    "I give away work I am good at, not just work I dislike.",
+    "When somebody does a job differently than I would, I leave it alone.",
+    "Somebody other than me can now do something that only I could do a year ago."
+  ]},
+  {name:'Relationships', desc:'A room that really gets you.', items:[
+    "The last time something uncomfortable needed raising, I raised it that week.",
+    "I trust the people around me to act in the best interest of the business when I am not watching.",
+    "Somebody I work with disagreed with me out loud in the last month.",
+    "I have trusted, experienced business owners who challenge my thinking and tell me when I am wrong.",
+    "There is at least one person I can be completely honest with about how both I and my business are actually doing."
+  ]},
+  {name:'Purpose', desc:'A reason the hard days are worth it.', items:[
+    "When people ask about my business, I speak about it with genuine enthusiasm.",
+    "Knowing what I know today, I would choose to build this business again.",
+    "My biggest decisions this year were made on purpose, not in reaction to something.",
+    "I can describe what I want my life to look like in three years, in specifics rather than in feelings.",
+    "The work I did last week moved me toward that life, rather than just keeping the business running."
+  ]}
+];
+
+/* ---------------- COPY ---------------- */
+const COPY = {
+  total: {
+    'Everything Runs Through You':"Every result in your business currently passes through you. Every decision, every fix, every standard. That is not a criticism of your ability. It is usually what a capable person does when they are the only one who can be trusted with the work. The cost is that you cannot step away from any of it, and you probably knew that before you answered a single question. What comes next is not trying harder. You already do that.",
+    'You See It, It Has Not Changed':"You can see the pattern. You could describe it to somebody else, probably in detail. What your answers do not show is much that has changed because you can see it. Seeing it and doing something different are two separate problems, and the second is considerably harder than the first. Most people arrive here and stay for years, because insight feels like progress.",
+    'It Holds When Things Are Calm':"You gave real answers rather than aspirational ones. You have said no to something that cost you. You are holding at least one thing you would rather not be holding. What your answers show is that it is not consistent yet. Things hold while they are calm, and they break under tension. You can probably name the conditions that break it.",
+    'You Are Governing It':"On the things this measures, you are already operating well. That is uncommon, and it is worth saying plainly rather than dressing it up. You are not in your own way in the ordinary sense. Whether a year built around developing the person is the right use of your time is a fair question, and one worth answering honestly before you commit to one."
+  },
+  pillar: {
+    Focus:{
+      'Not operating':"Your week is being set by whatever arrives in it. The statements that carry the most weight here are the ones about knowing where the money comes from and refusing work that does not fit, and neither is happening. Nothing is currently deciding what gets your attention, so everything does.",
+      'Visible, unchanged':"You can name the work that pays. Your week does not reflect it, and the gap between those two things is the whole finding. Clarity is not what you are short of. You are short of anything that protects the time once the day starts moving.",
+      'Holds when calm':"You direct your week more often than it directs you, and it holds while things are quiet. The heaviest statements here are about turning work away and knowing where the money comes from, and those are where you slip first when something urgent lands. You can probably name which kinds of urgent do it.",
+      'Governed':"You decide where your attention goes and it mostly goes there. You have turned away work you could have taken, which is the statement that carries the most weight in this pillar and the one most owners cannot claim. That is rarer than it sounds and it is worth saying plainly."
+    },
+    Time:{
+      'Not operating':"There is no edge to your work day. It ends when you run out, not when you decided. The statement that matters most here is what you do when the work piles up, and your answer is more hours. That is the only lever you currently have, and it is the one that runs out.",
+      'Visible, unchanged':"You can see what the week is costing you and not much has changed because of it. When the volume goes up your response is still to absorb it personally rather than to take something off the plate. The evenings and weekends are where the overflow goes.",
+      'Holds when calm':"You hold the shape of a normal week reasonably well. Under pressure the boundary is the first thing to go, and the heaviest statement in this pillar, what you do when the work piles up, is where it shows. You take work off your plate sometimes and add hours the rest of the time.",
+      'Governed':"Your week has edges that you set and mostly keep, and when the volume rises you take something off rather than add hours. You have been away and the business survived it. Most owners never get here, and the ones who do rarely got here by trying harder."
+    },
+    Capability:{
+      'Not operating':"The hard things wait. Poor work goes unmentioned, dreaded decisions sit, and anything you are good at stays with you. Nothing has moved out of your hands in a year, which is the statement that proves the rest. Everything still needs you because it has not been built to need anyone else.",
+      'Visible, unchanged':"You know which conversations you are avoiding and which decisions are sitting. Knowing has not moved them. You give away the work you dislike and keep the work you are good at, and that single habit is why the load has not come down.",
+      'Holds when calm':"You handle the hard things when there is room to. When you are stretched, the difficult conversation slides and you keep the work you are best at rather than let it go out imperfectly. Something has moved out of your hands, which matters. It holds until it is tested.",
+      'Governed':"You raise things early, decide before you are forced to, and let other people's work stand. Something you used to own is now owned by somebody else. That last one is the mechanism, not the decoration, and you have it running."
+    },
+    Relationships:{
+      'Not operating':"You are carrying this alone. Nobody pushes back on you, nobody tells you when you are wrong, and there is no one you can be fully honest with about how it is actually going. That is common at your level and it is not harmless. Note that this pillar is scored against a higher floor than the others, because owners tend to overstate it.",
+      'Visible, unchanged':"You could describe the isolation accurately and it has not changed. Nobody has disagreed with you out loud recently, which is the statement here that is hardest to explain away. The honest conversations are happening in your head rather than in the room.",
+      'Holds when calm':"There are people who will tell you the truth, and you do not always make it easy for them. Disagreement happens, raising the uncomfortable thing happens, but both get quieter when the pressure rises. That is the wrong way round.",
+      'Governed':"People disagree with you out loud, you trust them when you are not watching, and there is somewhere you can be honest. Measured against a floor set deliberately higher for this pillar, you have still cleared it. Whatever else this shows, you have built a room that works."
+    },
+    Purpose:{
+      'Not operating':"You could not currently say what the hard days are for. The decisions this year happened to you rather than being made by you, which is the statement weighted heaviest here, and you are not certain you would choose this again. That deserves to be taken seriously rather than pushed through.",
+      'Visible, unchanged':"You can articulate what you want. It is not showing up in what you actually did last week. The distance between the life you would describe and the week you just had is the finding, and enthusiasm when people ask about the business does not close it.",
+      'Holds when calm':"There is a reason underneath this and you can mostly name it. It thins out when you are tired. Some of your bigger decisions this year were made on purpose and some were reactions, and you can probably tell which were which without being told.",
+      'Governed':"You know what this is for, you would choose it again, and last week moved you toward it rather than just keeping the business alive. Measured against a floor set deliberately higher for this pillar, that holds. It is not a small thing and it is not the norm."
+    }
+  },
+  shape:{
+    even:r=>`Your five pillars sit within ${r} points of each other. Whatever is true about how you operate is true across the board, which makes you unusually consistent and means there is no single thing to repair. Change here is a level shift, not a fix.`,
+    drag:(lo,s)=>`Four of your five pillars are working. ${lo} is not, and it sits far enough below the others to be the constraint rather than a weak spot. At ${s} out of 15, removing the drag there will do more than improving anything else on this page.`,
+    split:(hi,lo,r)=>`You are two different operators depending on the room. ${hi} holds up and ${lo} does not, and there are ${r} points between them. Most people in this position have been compensating for years without ever naming it.`,
+    masked:(lo,s,t)=>`Your number of ${t} says you are operating well. ${lo} says otherwise, at ${s} out of 15. A total averages a collapse away, and this one will not average away in practice. This is the finding on the page.`
+  },
+  demotionNote:(n,raw)=>`Raw total ${raw} of 75 places this in a higher band. It has been adjusted down ${n===1?'one band':n+' bands'} because one or more pillars sit below the floor once weighting is applied. A number that hides a collapsed pillar is not a useful result.`
+};
+
+/* ---------------- STATE ---------------- */
+const flat=[]; PILLARS.forEach(p=>p.items.forEach(t=>flat.push({pillar:p.name,text:t})));
+let scores=new Array(25).fill(null);
+let result=null;
+
+/* ---------------- SCORING ENGINE ---------------- */
+// Weighted pillar scores are continuous, not integers. A threshold written as
+// "7 or less" therefore has to be tested as "under 8", otherwise a weighted 7.3
+// slips past a floor that a raw 7 would have tripped.
+function pillarBand(v){ for(const b of CONFIG.pillarBands) if(v<b.max+1) return b.label; return CONFIG.pillarBands.at(-1).label; }
+function bandIndex(total){ for(let i=0;i<CONFIG.bands.length;i++){const b=CONFIG.bands[i]; if(total>=b.min&&total<=b.max) return i;} return 0; }
+function round1(n){ return Math.round(n*10)/10; }
+
+function compute(){
+  const per={}, perW={};
+  PILLARS.forEach((p,pi)=>{
+    const raw=scores.slice(pi*5,pi*5+5);
+    const w=CONFIG.weights.slice(pi*5,pi*5+5);
+    per[p.name]=raw.reduce((a,b)=>a+(b||0),0);
+    perW[p.name]=round1(raw.reduce((a,b,i)=>a+(b||0)*w[i],0));
+  });
+  const names=Object.keys(per);
+  const vals=names.map(n=>perW[n]);              // weighted drives band, floors, shape
+  const total=names.reduce((a,n)=>a+per[n],0);   // raw drives the headline number
+  const max=Math.max(...vals), min=Math.min(...vals);
+  const highest=names[vals.indexOf(max)], lowest=names[vals.indexOf(min)];
+  const range=round1(max-min);
+
+  // demotion, tested against the weighted pillar score
+  let steps=0; const breached=[];
+  if(CONFIG.demotion.enabled){
+    names.forEach(n=>{
+      const adj=CONFIG.floorAdjust[n]||0;
+      const hard=CONFIG.demotion.hardFloor+adj, soft=CONFIG.demotion.softFloor+adj;
+      if(perW[n]<hard+1){ steps+=CONFIG.demotion.hardCost; breached.push(n); }
+      else if(perW[n]<soft+1){ steps+=CONFIG.demotion.softCost; breached.push(n); }
+    });
+  }
+  const rawIdx=bandIndex(total);
+  const finalIdx=Math.max(0,rawIdx-steps);
+
+  // shape
+  const sorted=[...vals].sort((a,b)=>a-b);
+  const gap=round1(sorted[1]-sorted[0]);
+  let shape;
+  if(total>=CONFIG.shape.maskedTotal && min<CONFIG.shape.maskedPillar+1)
+    shape={key:'masked', text:COPY.shape.masked(lowest,min,total), title:'The number is hiding something'};
+  else if(gap>=CONFIG.shape.dragGap)
+    shape={key:'drag', text:COPY.shape.drag(lowest,min), title:'One pillar is the constraint'};
+  else if(range>=CONFIG.shape.splitRange)
+    shape={key:'split', text:COPY.shape.split(highest,lowest,range), title:'Two different operators'};
+  else
+    shape={key:'even', text:COPY.shape.even(range), title:'Evenly held'};
+
+  return {per,perW,names,total,highest,lowest,range,rawIdx,finalIdx,steps,breached,shape,
+          band:CONFIG.bands[finalIdx].title, rawBand:CONFIG.bands[rawIdx].title};
+}
+
+/* ---------------- RENDER: shared ---------------- */
+function scaleHTML(){ return CONFIG.scale.map(([n,t])=>`<div><b>${n}</b><span>${t}</span></div>`).join(''); }
+
+function buildClient(){
+  document.getElementById('scaleC').innerHTML=scaleHTML();
+  document.getElementById('clientList').innerHTML=flat.map((s,i)=>
+    `<div class="stmt"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="t">${s.text}</div></div>`).join('');
+}
+
+function buildGuide(){
+  document.getElementById('guideList').innerHTML=flat.map((s,i)=>
+    `<div class="stmt" data-i="${i}">
+       <div class="n">${String(i+1).padStart(2,'0')}</div>
+       <div class="t">${s.text}<div class="wt">weight ${CONFIG.weights[i].toFixed(1)}</div></div>
+       <div class="dots">${[0,1,2,3].map(v=>`<button data-i="${i}" data-v="${v}">${v}</button>`).join('')}</div>
+     </div>`).join('');
+  document.getElementById('guideList').addEventListener('click',e=>{
+    const b=e.target.closest('button[data-v]'); if(!b) return;
+    const i=+b.dataset.i, v=+b.dataset.v;
+    scores[i]= scores[i]===v ? null : v;
+    syncGuide();
+  });
+}
+
+function syncGuide(){
+  document.querySelectorAll('#guideList .stmt').forEach(row=>{
+    const i=+row.dataset.i;
+    row.classList.toggle('done',scores[i]!==null);
+    row.querySelectorAll('button[data-v]').forEach(b=>b.classList.toggle('on',+b.dataset.v===scores[i]));
+  });
+  const answered=scores.filter(s=>s!==null).length;
+  document.getElementById('lvAns').textContent=answered+'/25';
+  const c=compute();
+  c.names.forEach(n=>document.getElementById('lv'+n).textContent=answered?(c.per[n]+' · '+c.perW[n]):'–');
+  document.getElementById('lvTotal').textContent=answered?c.total:'–';
+  document.getElementById('btnRun').disabled = answered<25;
+}
+
+/* ---------------- RENDER: report ---------------- */
+function esc(s){return (s||'').replace(/[<>&]/g,m=>({'<':'&lt;','>':'&gt;','&':'&amp;'}[m]));}
+
+function buildReport(){
+  const c=result, name=esc(document.getElementById('fName').value)||'Not recorded',
+        biz=esc(document.getElementById('fBiz').value)||'Not recorded',
+        gd=esc(document.getElementById('fGuide').value)||'Not recorded';
+  const date=new Date().toLocaleDateString('en-CA',{year:'numeric',month:'long',day:'numeric'});
+  const cta=CONFIG.cta[c.finalIdx];
+
+  const cards=c.names.map(n=>{
+    const v=c.per[n], vw=c.perW[n], pct=(vw/15*100).toFixed(1), bd=pillarBand(vw), low=c.breached.includes(n);
+    return `<div class="pcard ${low?'low':''}">
+      <div class="r"><h3>${n}</h3><div class="v">${bd}</div></div>
+      <div class="sc">${v}<small>/15 raw</small> <em style="font-size:13px;color:var(--muted)">· ${vw} weighted</em></div>
+      <div class="rail"><i style="width:${pct}%"></i><u style="left:${pct}%"></u></div>
+      <p>${COPY.pillar[n][bd]}</p></div>`;
+  }).join('');
+
+  document.getElementById('reportBody').innerHTML=`
+  <div class="sheet">
+    <div class="hero">
+      <div class="top">
+        <svg class="lockup" viewBox="0 0 1600 559" aria-label="Breakthrough Year"><g transform="translate(0,559) scale(0.1,-0.1)" fill="#FFFFFF"><path d="M4650 4005 l0 -565 60 0 60 0 0 170 c0 181 4 195 44 148 11 -13 82
+-89 159 -170 l140 -148 84 0 c51 0 83 4 81 10 -1 5 -81 88 -175 183 -95 95
+-173 180 -173 189 0 13 243 252 291 286 35 24 19 32 -64 32 l-82 0 -140 -140
+c-77 -77 -145 -140 -152 -140 -10 0 -13 76 -13 355 l0 355 -60 0 -60 0 0 -565z M5920 4005 l0 -565 59 0 60 0 3 223 c3 214 4 224 28 271 14 28 42 64
+63 80 35 28 46 31 111 31 86 0 119 -17 147 -78 17 -38 19 -68 19 -284 l0 -243
+60 0 60 0 0 248 c0 288 -7 328 -71 397 -85 93 -258 102 -365 20 -18 -14 -37
+-25 -43 -25 -8 0 -11 78 -11 245 l0 245 -60 0 -60 0 0 -565z M9900 4005 l0 -565 59 0 59 0 5 218 c5 242 11 275 67 333 58 61 177
+77 239 32 57 -42 64 -73 69 -340 l5 -243 54 0 54 0 -3 278 -3 279 -30 49 c-76
+122 -261 152 -391 63 -23 -16 -47 -29 -53 -29 -8 0 -11 78 -11 245 l0 245 -60
+0 -60 0 0 -565z M1600 3971 l0 -531 189 0 c215 0 314 14 392 56 149 82 193 259 99
+397 -26 38 -86 83 -123 92 -38 10 -33 25 21 61 65 43 92 97 92 188 -1 119 -52
+195 -159 238 -51 20 -77 23 -283 26 l-228 4 0 -531z m454 384 c60 -30 81 -65
+81 -135 0 -72 -21 -105 -88 -139 -41 -20 -67 -24 -182 -29 l-135 -5 0 167 0
+167 143 -3 c118 -2 149 -6 181 -23z m43 -452 c65 -35 88 -75 88 -155 0 -52 -5
+-73 -21 -95 -53 -72 -124 -93 -309 -93 l-125 0 0 186 0 186 163 -4 c144 -3
+167 -6 204 -25z M5459 4333 c0 -4 -1 -48 -2 -98 l-2 -90 -77 -3 -78 -3 0 -49 0 -50
+74 0 c68 0 74 -2 80 -22 3 -13 6 -122 6 -243 0 -194 3 -225 19 -262 34 -75
+113 -102 234 -82 l67 11 0 53 0 53 -72 -5 c-124 -9 -137 16 -137 272 -1 83 2
+167 5 188 l7 37 98 0 99 0 0 50 0 49 -102 3 -103 3 -1 95 0 95 -57 3 c-31 2
+-57 -1 -58 -5z M2765 4144 c-22 -8 -57 -28 -77 -44 -48 -39 -58 -38 -58 5 l0 35 -61
+0 -61 0 6 -31 c3 -17 6 -175 6 -350 l0 -319 60 0 60 0 0 208 c0 114 5 223 10
+243 26 94 100 149 202 149 l58 0 0 60 0 60 -52 -1 c-29 0 -71 -7 -93 -15z M3267 4149 c-90 -21 -177 -92 -225 -184 -25 -46 -27 -59 -27 -170 0
+-111 2 -124 28 -177 36 -74 120 -151 189 -174 36 -12 81 -17 138 -17 110 1
+182 28 252 92 l52 48 -29 26 c-46 41 -59 41 -109 3 -60 -46 -105 -59 -186 -54
+-52 3 -76 9 -109 31 -49 33 -90 91 -98 141 l-6 36 277 0 c247 0 277 2 283 16
+12 31 -17 168 -48 232 -63 130 -216 190 -382 151z m165 -109 c67 -19 117 -74
+133 -147 l7 -33 -216 0 c-215 0 -216 0 -216 22 0 12 11 40 25 64 49 84 160
+123 267 94z M4037 4149 c-50 -12 -127 -52 -151 -78 -20 -22 -20 -22 16 -57 l35
+-36 57 32 c77 44 171 52 238 22 54 -23 74 -50 84 -109 l7 -43 -79 0 c-168 -1
+-317 -47 -367 -112 -67 -88 -55 -216 26 -281 51 -42 104 -60 177 -61 76 -1
+142 20 189 60 21 19 44 34 50 34 6 0 11 -18 11 -40 l0 -40 55 0 55 0 0 223 c0
+123 -5 250 -11 282 -21 112 -70 172 -165 201 -52 15 -168 17 -227 3z m279
+-426 c-9 -74 -31 -119 -79 -157 -32 -26 -49 -31 -105 -34 -117 -7 -182 42
+-168 126 13 84 92 118 275 121 l84 1 -7 -57z M6995 4144 c-22 -8 -57 -28 -77 -44 -48 -39 -58 -38 -58 5 l0 35 -61
+0 -62 0 7 -52 c3 -29 6 -187 6 -351 l0 -298 58 3 57 3 5 225 c5 206 7 228 27
+265 40 76 93 105 189 105 l54 0 0 60 0 60 -52 -1 c-29 0 -71 -7 -93 -15z M7507 4149 c-97 -23 -199 -105 -237 -192 -63 -143 -32 -328 73 -429
+56 -55 116 -84 197 -97 173 -28 335 51 408 199 24 49 27 66 27 160 0 92 -3
+112 -26 160 -48 102 -118 164 -219 194 -58 17 -162 20 -223 5z m231 -136 c31
+-19 58 -47 80 -83 29 -49 32 -62 32 -131 0 -87 -15 -131 -62 -185 -45 -51 -99
+-74 -176 -74 -73 0 -114 15 -166 60 -58 52 -79 102 -79 190 0 117 43 192 138
+237 70 34 165 28 233 -14z M9200 4144 c-132 -35 -218 -134 -243 -279 -35 -204 86 -383 287 -425
+99 -20 224 9 277 66 42 45 52 33 47 -58 -10 -179 -95 -255 -275 -246 -95 5
+-120 14 -197 73 -25 19 -48 35 -50 35 -3 0 -21 -20 -42 -45 -36 -45 -37 -46
+-18 -66 73 -81 243 -130 387 -110 173 24 272 112 306 269 7 34 11 186 11 417
+l0 365 -60 0 -60 0 0 -40 c0 -48 -11 -50 -53 -10 -69 65 -196 86 -317 54z
+m242 -123 c46 -23 98 -85 117 -140 14 -44 14 -123 -1 -173 -16 -53 -78 -122
+-130 -143 -54 -22 -151 -22 -201 -1 -93 40 -154 148 -144 256 9 98 58 168 147
+210 57 26 148 22 212 -9z M8162 3878 c3 -242 5 -267 24 -308 45 -96 124 -143 239 -143 75 0
+127 17 181 58 43 33 52 31 56 -7 3 -33 3 -33 58 -33 l55 0 0 58 c-1 31 -2 188
+-3 347 l-2 290 -60 0 -60 0 0 -207 c0 -218 -6 -259 -43 -313 -39 -58 -70 -74
+-150 -78 -59 -2 -78 1 -104 17 -64 40 -68 59 -71 334 l-3 247 -60 0 -60 0 3
+-262z M8306 2336 c-29 -45 -94 -147 -146 -228 -53 -82 -102 -148 -110 -148
+-8 0 -26 19 -39 43 -13 23 -43 71 -66 107 -23 36 -60 94 -82 130 -22 36 -55
+89 -73 118 l-33 52 -79 0 c-43 0 -78 -2 -78 -5 0 -2 51 -82 113 -177 62 -95
+150 -230 195 -299 l82 -126 0 -227 0 -227 63 3 62 3 -3 220 c-2 166 0 226 10
+243 7 13 96 149 197 303 101 154 182 281 180 283 -2 2 -35 6 -72 8 l-69 4 -52
+-80z M8801 2054 c-68 -25 -117 -59 -160 -114 -54 -69 -75 -136 -74 -240 1
+-117 28 -185 102 -261 79 -79 142 -102 271 -97 107 4 177 30 243 88 52 45 50
+57 -20 106 -22 15 -25 14 -68 -24 -53 -47 -119 -67 -200 -60 -95 8 -180 87
+-192 177 l-6 41 276 0 c175 0 278 4 282 10 12 20 -17 166 -46 227 -31 65 -66
+100 -133 135 -55 29 -210 36 -275 12z m200 -105 c65 -22 119 -92 119 -154 l0
+-25 -211 0 -212 0 6 37 c19 112 170 184 298 142z M9576 2055 c-52 -14 -146 -73 -146 -91 0 -5 15 -25 34 -43 l34 -33
+31 21 c46 33 108 51 175 51 101 0 159 -42 172 -126 l6 -41 -123 -6 c-226 -9
+-332 -65 -359 -189 -33 -145 74 -258 244 -258 81 0 127 14 181 55 25 19 49 35
+54 35 6 0 11 -17 13 -37 l3 -38 54 0 53 0 -1 216 c-1 118 -6 242 -11 276 -14
+99 -53 159 -130 199 -46 24 -214 29 -284 9z m301 -415 c-14 -120 -78 -189
+-183 -198 -130 -11 -205 65 -159 162 29 61 95 83 249 85 l99 1 -6 -50z M10455 2057 c-43 -17 -105 -57 -105 -68 0 -5 -6 -9 -14 -9 -9 0 -17
+16 -21 40 l-7 41 -51 -3 -52 -3 0 -42 c1 -24 2 -183 3 -353 l2 -311 58 3 57 3
+5 230 c5 230 5 230 33 278 36 61 85 87 165 87 59 0 60 0 66 31 3 17 6 44 6 60
+0 29 -1 29 -57 28 -32 0 -72 -6 -88 -12z"/></g><g transform="translate(0,559) scale(0.1,-0.1)" fill="#F16436"><path d="M11367 4699 c-103 -25 -188 -95 -234 -194 -26 -58 -28 -68 -31 -247
+-3 -112 0 -188 5 -188 5 0 20 23 32 51 30 65 82 116 157 154 52 26 69 30 144
+30 73 0 93 -4 141 -28 30 -16 71 -43 91 -60 19 -18 122 -106 228 -197 106 -91
+234 -201 284 -245 51 -44 108 -93 128 -110 57 -48 248 -213 318 -275 36 -31
+97 -83 135 -116 39 -32 75 -64 82 -70 6 -6 53 -46 104 -90 51 -43 133 -115
+183 -159 172 -152 166 -149 206 -112 14 12 135 116 270 232 269 231 298 259
+332 325 19 38 23 60 23 140 0 84 -4 101 -27 145 -19 36 -156 179 -490 511
+-399 398 -471 464 -518 485 l-55 24 -735 2 c-408 1 -752 -3 -773 -8z"/></g><g transform="translate(0,559) scale(0.1,-0.1)" fill="#2955A0"><path d="M13230 2749 c-30 -28 -77 -70 -104 -93 -27 -22 -68 -57 -90 -76 -69
+-60 -73 -64 -122 -105 -26 -22 -57 -50 -69 -62 -12 -13 -27 -23 -34 -23 -6 0
+-11 -4 -11 -8 0 -4 -35 -37 -77 -72 -43 -36 -80 -67 -83 -71 -3 -3 -30 -27
+-60 -53 -30 -27 -71 -62 -90 -80 -19 -17 -75 -65 -125 -106 -115 -96 -147
+-124 -215 -186 -30 -28 -129 -113 -220 -190 -214 -180 -221 -186 -240 -205
+-30 -28 -104 -76 -144 -93 -23 -9 -67 -16 -108 -16 -58 0 -82 6 -134 31 -75
+35 -136 95 -167 162 -12 26 -26 47 -31 47 -4 0 -6 -84 -4 -187 3 -177 5 -191
+30 -244 50 -109 136 -176 253 -199 43 -8 267 -10 775 -8 l715 3 60 28 c53 24
+117 85 518 485 337 336 465 470 484 507 20 38 27 69 31 132 4 75 2 87 -25 145
+-19 40 -50 82 -84 114 -116 111 -545 474 -559 474 -8 0 -40 -23 -70 -51z"/></g><g transform="translate(0,559) scale(0.1,-0.1)" fill="#FAF8F5"><path d="M11335 4292 c-111 -48 -153 -85 -196 -172 l-29 -59 0 -1251 0 -1251
+25 -52 c33 -72 93 -130 169 -166 52 -25 76 -31 134 -31 41 0 85 7 108 16 40
+17 114 65 144 93 19 19 26 25 240 205 91 77 190 162 220 190 68 62 100 90 215
+186 50 41 106 89 125 106 19 18 60 53 90 80 30 26 57 50 60 53 3 4 40 35 83
+71 42 35 77 68 77 72 0 4 5 8 11 8 7 0 22 10 34 23 12 12 43 40 69 62 49 41
+53 45 122 105 22 19 63 54 90 76 27 23 72 62 99 88 28 25 56 46 63 46 22 0 13
+26 -18 49 -17 12 -75 61 -129 109 -54 48 -139 123 -190 166 -51 44 -98 84
+-104 90 -7 6 -43 38 -82 70 -38 33 -99 85 -135 116 -70 62 -261 227 -318 275
+-20 17 -77 66 -128 110 -50 44 -178 154 -284 245 -106 91 -209 179 -228 197
+-20 17 -61 44 -91 59 -72 36 -184 43 -246 16z"/></g></svg>
+        <div class="label" style="color:rgba(255,255,255,.6);text-align:right">Business Owner<br>Capacity Assessment</div>
+      </div>
+      <div class="boca">
+        <div class="num">${c.total}<small>/75</small></div>
+        <div class="said">
+          <span class="label">Your Business Owner Capacity number</span>
+          <p>${c.band}</p>
+        </div>
+      </div>
+      <div class="who">
+        <div><span class="label">Prepared for</span><b>${name}</b></div>
+        <div><span class="label">Business</span><b>${biz}</b></div>
+        <div><span class="label">Guide</span><b>${gd}</b></div>
+        <div><span class="label">Date</span><b>${date}</b></div>
+      </div>
+    </div>
+
+    <div class="verdict">
+      <div class="label">Where this puts you</div>
+      <h2>${c.band}</h2>
+      <p>${COPY.total[c.band]}</p>
+      ${c.steps>0?`<div class="demoted">${COPY.demotionNote(c.steps,c.total)}</div>`:''}
+    </div>
+
+    <div class="shape">
+      <div class="label">${c.shape.title}</div>
+      <p>${c.shape.text}</p>
+    </div>
+
+    <div class="quote">
+      <p>“Most business problems are leadership problems in disguise. When the leader grows, the business becomes the beneficiary.”</p>
+      <div class="label" style="white-space:nowrap">Two breakthroughs · One year</div>
+    </div>
+
+    <div class="pagebreak"></div>
+    <div class="label" style="margin:26px 0 12px">Pillar by pillar</div>
+    <div class="pillars">${cards}</div>
+
+    <div class="cta">
+      <div>
+        <h2>${cta.h}</h2>
+        <p>${cta.p}</p>
+      </div>
+      <div class="label" style="text-align:right">${cta.tag}<br>${CONFIG.seats}</div>
+    </div>
+    <div class="partner">
+      <b>${CONFIG.partner.name}</b> ${CONFIG.partner.line} <span class="url">${CONFIG.partner.url}</span>
+    </div>
+    <div class="foot">
+      Scored out of 75 across five pillars, 15 each. Individual statements are weighted, so a pillar's weighted score can differ from the raw sum of its five answers. This is a snapshot of how you operate right now, not a measure of ability or effort.
+      The Breakthrough Year makes no claims about revenue or business results. We develop the person. The business benefits downstream.
+    </div>
+  </div>`;
+}
+
+/* ---------------- BACKEND ---------------- */
+async function saveRecord(){
+  if(!ENDPOINT) return null;
+  const c=result;
+  const body={
+    name:document.getElementById('fName').value,
+    biz:document.getElementById('fBiz').value,
+    guide:document.getElementById('fGuide').value,
+    scores:scores.map(Number),
+    computed:{per:c.per,perW:c.perW,total:c.total,band:c.band,rawBand:c.rawBand,
+              steps:c.steps,breached:c.breached,shape:c.shape.key,range:c.range}
+  };
+  // text/plain avoids a CORS preflight that Apps Script cannot answer
+  const r=await fetch(ENDPOINT,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(body)});
+  const d=await r.json();
+  if(!d.ok) throw new Error(d.error||'Save failed');
+  return d.id;
+}
+
+async function loadRecord(id){
+  const r=await fetch(ENDPOINT+'?id='+encodeURIComponent(id));
+  const d=await r.json();
+  if(!d.ok) throw new Error(d.error||'Not found');
+  return d.record;
+}
+
+function showLink(id){
+  const url=location.origin+location.pathname+'?id='+id;
+  const el=document.getElementById('shareRow');
+  el.style.display='flex';
+  el.querySelector('input').value=url;
+}
+
+/* ---------------- WIRING ---------------- */
+function show(v){
+  document.querySelectorAll('.view').forEach(s=>s.classList.toggle('on',s.id===v));
+  document.querySelectorAll('.views button').forEach(b=>b.classList.toggle('on',b.dataset.v===v));
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.views button').forEach(b=>b.onclick=()=>show(b.dataset.v));
+document.getElementById('btnRun').onclick=async()=>{
+  const btn=document.getElementById('btnRun');
+  result=compute(); buildReport(); show('report');
+  if(!ENDPOINT) return;
+  btn.disabled=true; btn.textContent='Saving...';
+  try{ const id=await saveRecord(); if(id) showLink(id); }
+  catch(err){ alert('Report generated but not saved: '+err.message); }
+  finally{ btn.disabled=false; btn.textContent='Run Test'; }
+};
+document.getElementById('btnCopy').onclick=()=>{
+  const i=document.querySelector('#shareRow input'); i.select();
+  navigator.clipboard.writeText(i.value);
+  const b=document.getElementById('btnCopy'); const t=b.textContent;
+  b.textContent='Copied'; setTimeout(()=>b.textContent=t,1400);
+};
+document.getElementById('btnPrint').onclick=()=>window.print();
+document.getElementById('btnBack').onclick=()=>show('guide');
+document.getElementById('btnClear').onclick=()=>{ scores=new Array(25).fill(null); syncGuide(); };
+document.getElementById('btnDemo').onclick=()=>{
+  scores=[3,2,2,2,3, 0,0,3,3,1, 1,2,1,2,3, 3,2,2,3,2, 3,2,3,2,3];
+  document.getElementById('fName').value=document.getElementById('fName').value||'Sample Respondent';
+  document.getElementById('fBiz').value=document.getElementById('fBiz').value||'Sample Business Ltd.';
+  syncGuide();
+};
+
+buildClient(); buildGuide(); syncGuide();
+
+/* Deep link: index.html?id=xxxx opens straight to that saved report. */
+(async function(){
+  const id=new URLSearchParams(location.search).get('id');
+  if(!id) return;
+  document.getElementById('reportBody').innerHTML='<div class="empty">Loading report...</div>';
+  show('report');
+  if(!ENDPOINT){ document.getElementById('reportBody').innerHTML='<div class="empty">No endpoint configured.</div>'; return; }
+  try{
+    const rec=await loadRecord(id);
+    scores=rec.scores;
+    document.getElementById('fName').value=rec.name||'';
+    document.getElementById('fBiz').value=rec.biz||'';
+    document.getElementById('fGuide').value=rec.guide||'';
+    result=compute(); buildReport();
+    document.querySelector('.views').style.display='none'; // client sees report only
+    document.getElementById('btnBack').style.display='none';
+  }catch(err){
+    document.getElementById('reportBody').innerHTML='<div class="empty">That report could not be found.</div>';
+  }
+})();
+</script>
+</body>
+</html>
