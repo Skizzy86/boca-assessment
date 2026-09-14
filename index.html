@@ -320,6 +320,7 @@ h2{font-size:22px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
       <button class="btn dark" id="btnDemo">Fill sample scores</button>
       <button class="btn dark" id="btnClear" style="background:transparent;border:1px solid var(--line);color:#57534d">Clear all</button>
     </div>
+    <div class="scale" id="scaleG"></div>
     <div id="guideList"></div>
     <div class="livebar">
       <div class="pill"><span class="label">Answered</span><b id="lvAns">0/25</b></div>
@@ -444,10 +445,10 @@ const CONFIG = {
 /* ---------------- STATEMENTS (live sheet, v4 + client Capability rewrite) --------------- */
 const PILLARS = [
   {name:'Focus', desc:'Energy on what actually pays.', items:[
-    "I know which three activities generate most of this business's money, and I spent time on at least two of them last week.",
-    "Most of yesterday went to work that nobody else could have done.",
+    "I know my three vital functions for this business and I spent significant time on at least two of them last week.",
+    "Most of my time and energy yesterday was on work nobody else could have done.",
     "I planned this week before it started, and it is going roughly as planned.",
-    "The last time work came in that did not fit, I turned it down.",
+    "The last time an opportunity, work or client that came in that did not fit, we turned it down.",
     "If somebody put my calendar beside my list of priorities, they would match."
   ]},
   {name:'Time', desc:'A week you plan, not survive.', items:[
@@ -460,7 +461,7 @@ const PILLARS = [
   {name:'Capability', desc:'The hard things, handled early.', items:[
     "When somebody's work is not good enough, I tell them within two days.",
     "I make the decisions I am dreading within a week.",
-    "I give away work I am good at, not just work I dislike.",
+    "I assign work to my team that I am good at, not just work I dislike.",
     "When somebody does a job differently than I would, I leave it alone.",
     "Somebody other than me can now do something that only I could do a year ago."
   ]},
@@ -592,6 +593,7 @@ function scaleHTML(){ return CONFIG.scale.map(([n,t])=>`<div><b>${n}</b><span>${
 
 function buildClient(){
   document.getElementById('scaleC').innerHTML=scaleHTML();
+  document.getElementById('scaleG').innerHTML=scaleHTML();
   document.getElementById('clientList').innerHTML=flat.map((s,i)=>
     `<div class="stmt"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="t">${s.text}</div></div>`).join('');
 }
