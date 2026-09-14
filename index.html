@@ -320,6 +320,7 @@ h2{font-size:22px;font-weight:700;letter-spacing:-.01em;margin:0 0 8px}
       <button class="btn dark" id="btnDemo">Fill sample scores</button>
       <button class="btn dark" id="btnClear" style="background:transparent;border:1px solid var(--line);color:#57534d">Clear all</button>
     </div>
+    <div class="scale" id="scaleG"></div>
     <div id="guideList"></div>
     <div class="livebar">
       <div class="pill"><span class="label">Answered</span><b id="lvAns">0/25</b></div>
@@ -592,6 +593,7 @@ function scaleHTML(){ return CONFIG.scale.map(([n,t])=>`<div><b>${n}</b><span>${
 
 function buildClient(){
   document.getElementById('scaleC').innerHTML=scaleHTML();
+  document.getElementById('scaleG').innerHTML=scaleHTML();
   document.getElementById('clientList').innerHTML=flat.map((s,i)=>
     `<div class="stmt"><div class="n">${String(i+1).padStart(2,'0')}</div><div class="t">${s.text}</div></div>`).join('');
 }
